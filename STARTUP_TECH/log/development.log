@@ -1,0 +1,1201 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (32.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (13.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20180424142333)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180424142333"]]
+  [1m[35m (20.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to ClassUser (20180424142428)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "users" ADD "user" varchar[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180424142428"]]
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-04-24 14:26:25.348639"], ["updated_at", "2018-04-24 14:26:25.348639"]]
+  [1m[35m (9.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArticles (20180424142742)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "articles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180424142742"]]
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to ClassArticle (20180424142829)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "articles" ADD "name" varchar[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "articles" ADD "body" varchar[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "articles" ADD "description" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180424142829"]]
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCategories (20180424143633)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180424143633"]]
+  [1m[35m (23.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to ClassCategorie (20180424143746)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (4.2ms)[0m  [1m[35mALTER TABLE "categories" ADD "name" varchar[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180424143746"]]
+  [1m[35m (8.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (6.9ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 15:36:18.616940"], ["updated_at", "2018-04-24 15:36:18.616940"], ["user", "Martin"]]
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 15:36:28.964697"], ["updated_at", "2018-04-24 15:36:28.964697"], ["user", "Marc"]]
+  [1m[35m (18.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 15:37:05.015631"], ["updated_at", "2018-04-24 15:37:05.015631"], ["user", "Alain"]]
+  [1m[35m (23.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 15:37:23.093203"], ["updated_at", "2018-04-24 15:37:23.093203"], ["user", "Jean"]]
+  [1m[35m (24.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 15:37:33.256144"], ["updated_at", "2018-04-24 15:37:33.256144"], ["user", "Martine"]]
+  [1m[35m (7.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 15:37:42.731954"], ["updated_at", "2018-04-24 15:37:42.731954"], ["user", "Marie"]]
+  [1m[35m (6.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 15:37:52.338503"], ["updated_at", "2018-04-24 15:37:52.338503"], ["user", "Audrey"]]
+  [1m[35m (17.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 15:38:01.361201"], ["updated_at", "2018-04-24 15:38:01.361201"], ["user", "Maxime"]]
+  [1m[35m (30.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 15:38:46.535274"], ["updated_at", "2018-04-24 15:38:46.535274"], ["user", "Damien"]]
+  [1m[35m (32.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 15:38:56.605453"], ["updated_at", "2018-04-24 15:38:56.605453"], ["user", "Samir"]]
+  [1m[35m (13.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ClassAddUserId (20180424170620)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "articles" ADD "user_id" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_articles_on_user_id" ON "articles" ("user_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180424170620"]]
+  [1m[35m (14.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_articles_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_articles_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (7.3ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 17:10:15.993700"], ["updated_at", "2018-04-24 17:10:15.993700"], ["name", "Mer"], ["body", "La mer Méditerranée est une mer intercontinentale presque entièrement fermée, bordée par les côtes d'Europe du sud, d’Afrique du Nord et d’Asie, depuis le détroit de Gibraltar à l'ouest"], ["description", "Mer Méditerranée"], ["user_id", 1]]
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 17:14:28.845571"], ["updated_at", "2018-04-24 17:14:28.845571"], ["name", "Provence"], ["body", "La Provence est une région du sud-est de la France située à la frontière de l'Italie et au bord de la mer Méditerranée. Elle est réputée pour ses paysages variés, des Alpes du Sud et des plaines de Camargue aux vignobles vallonnés et aux oliveraies en passant par les forêts de pins et les champs de lavande. Au sud se trouve la Côte d'Azur, où Nice et des stations balnéaires telles que Saint-Tropez et Cannes longent la côte."], ["description", "Provence"], ["user_id", 2]]
+  [1m[35m (21.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 17:18:18.156961"], ["updated_at", "2018-04-24 17:18:18.156961"], ["name", "Region camargue"], ["body", "La Camargue est une région naturelle française située au bord de la mer Méditerranée, dans les départements des Bouches-du-Rhône et du Gard, et formée par le delta du Rhône."], ["description", "Camargue"], ["user_id", 3]]
+  [1m[35m (31.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (7.5ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 17:20:44.943499"], ["updated_at", "2018-04-24 17:20:44.943499"], ["name", "Region Toscane"], ["body", "La Toscane est une région du centre de l'Italie. Sa capitale, Florence, abrite une partie de l'art et de l'architecture de la Renaissance la plus reconnaissable au monde, notamment le David de Michel-Ange, les œuvres de Botticelli exposées dans la galerie des Offices et la cathédrale Santa Maria del Fiore. Son paysage naturel varié comprend les cimes effilées des Apennins, les plages de l'île d'Elbe au bord de la mer Tyrrhénienne et les oliveraies et vignobles du Chianti."], ["description", "Toscane"], ["user_id", 4]]
+  [1m[35m (29.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 17:22:52.192464"], ["updated_at", "2018-04-24 17:22:52.192464"], ["name", "Pays"], ["body", "L'Uruguay est un pays d'Amérique du Sud réputé pour son arrière-pays verdoyant et sa côte bordée de plages. Sa capitale Montevideo s'articule autour de la Plaza Independencia, où se dressait autrefois une citadelle espagnole. Elle mène à la Ciudad Vieja (vieille ville) qui est pourvue de bâtiments art déco, de maisons coloniales et du Mercado del Puerto, un ancien marché portuaire avec de nombreux barbecues. La Rambla, une promenade maritime, passe devant des étals de poissons, des jetées et des parcs."], ["description", "Uruguay"], ["user_id", 5]]
+  [1m[35m (26.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 17:44:09.525115"], ["updated_at", "2018-04-24 17:44:09.525115"], ["name", "Bassin de la plata"], ["body", "Le Río de la Plata — ou Rio de la Plata — est l'estuaire créé par le Rio Paraná et le Rio Uruguay, formant sur la côte atlantique sud-américaine une entaille triangulaire de 290 km de long"], ["description", "Rio de la plata"], ["user_id", 6]]
+  [1m[35m (60.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 17:47:24.419409"], ["updated_at", "2018-04-24 17:47:24.419409"], ["name", "wikiHow"], ["body", "wikiHow is an online Wiki-Style community consisting of an extensive database of how-to guides. Founded in 2005 by Internet entrepreneur Jack Herrick, the website aims to create the world’s most helpful how-to instructions to enable everyone in the world to learn how to do anything."], ["description", "wiki How"], ["user_id", 7]]
+  [1m[35m (107.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 18:07:53.146191"], ["updated_at", "2018-04-24 18:07:53.146191"], ["name", "Cocombre"], ["body", "Le concombre est une plante potagère herbacée, rampante, de la même famille que la calebasse africaine, le melon ou la courge. C'est botaniquement un fruit qui est consommé comme un légume. La plante, qui poussait naturellement au pied de l'Himalaya, aurait été domestiquée pour la première fois en Inde il y a au moins 3 000 ans."], ["description", "Long Légume Vert"], ["user_id", 8]]
+  [1m[35m (78.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 18:09:52.227199"], ["updated_at", "2018-04-24 18:09:52.227199"], ["name", "kim"], ["body", "Kimi wa Kimi da yo (君は君だよ?, trad. : « Tu es êtes qui tu es ») est le neuvième single du groupe masculin japonais SMAP."], ["description", "Kimi wa Kimi da yo"], ["user_id", 9]]
+  [1m[35m (126.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 18:11:39.978004"], ["updated_at", "2018-04-24 18:11:39.978004"], ["name", "Christian Tissier"], ["body", "Christian Tissier, né à Paris en 1951, est un professeur d'aïkido français, promu au grade de 8e dan d'aïkido par l'Aikikai de Tokyo."], ["description", "Aïkido - Principes et applications - Volume 2 "], ["user_id", 9]]
+  [1m[35m (97.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 18:25:42.261113"], ["updated_at", "2018-04-24 18:25:42.261113"], ["name", "Nouriture"]]
+  [1m[35m (86.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 18:25:55.381033"], ["updated_at", "2018-04-24 18:25:55.381033"], ["name", "Homme"]]
+  [1m[35m (80.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 18:26:10.577540"], ["updated_at", "2018-04-24 18:26:10.577540"], ["name", "Lieux"]]
+  [1m[35m (64.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 18:26:22.229465"], ["updated_at", "2018-04-24 18:26:22.229465"], ["name", "Chose"]]
+  [1m[35m (100.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_articles_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_articles_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArticleCategories (20180424190233)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "article_categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180424190233"]]
+  [1m[35m (114.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to ArticleCategories (20180424190348)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "articles_categories" ("article_id" integer, "category_id" integer)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180424190348"]]
+  [1m[35m (102.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_articles_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_articles_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_articles_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_articles_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:41.855135"], ["updated_at", "2018-04-24 19:57:41.855135"], ["user", "Hutt"]]
+  [1m[35m (102.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:41.960575"], ["updated_at", "2018-04-24 19:57:41.960575"], ["user", "Bith"]]
+  [1m[35m (91.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:42.060644"], ["updated_at", "2018-04-24 19:57:42.060644"], ["user", "Porg"]]
+  [1m[35m (91.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:42.161021"], ["updated_at", "2018-04-24 19:57:42.161021"], ["user", "Dathomirian"]]
+  [1m[35m (80.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:42.250028"], ["updated_at", "2018-04-24 19:57:42.250028"], ["user", "Jawa"]]
+  [1m[35m (59.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:42.314018"], ["updated_at", "2018-04-24 19:57:42.314018"], ["user", "Wookiee"]]
+  [1m[35m (140.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:42.458872"], ["updated_at", "2018-04-24 19:57:42.458872"], ["user", "Mon Calamari"]]
+  [1m[35m (79.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:42.544560"], ["updated_at", "2018-04-24 19:57:42.544560"], ["user", "Jawa"]]
+  [1m[35m (77.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:42.626888"], ["updated_at", "2018-04-24 19:57:42.626888"], ["user", "Mon Calamari"]]
+  [1m[35m (91.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:42.724707"], ["updated_at", "2018-04-24 19:57:42.724707"], ["user", "Ithorian"]]
+  [1m[35m (107.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:42.904156"], ["updated_at", "2018-04-24 19:57:42.904156"], ["name", "Vice Admiral Holdo"], ["body", "Careful, Ren, that your personal interests not interfere with orders from Leader Snoke."], ["description", "Muaa kabukk ru ruh rarr ga."], ["user_id", 6]]
+  [1m[35m (95.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:43.010909"], ["updated_at", "2018-04-24 19:57:43.010909"], ["name", "Chirrut Imwe"], ["body", "You're tenacious, Jedi."], ["description", "Huewaa ahuma wyaaaaaa rarr ru ga gwyaaaag?"], ["user_id", 9]]
+  [1m[35m (98.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:43.123709"], ["updated_at", "2018-04-24 19:57:43.123709"], ["name", "Maz Kanata"], ["body", "Suicide is not the Jedi way, master."], ["description", "Ma ru yrroonn gwyaaaag ooma huewaa nng."], ["user_id", 7]]
+  [1m[35m (80.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:43.222935"], ["updated_at", "2018-04-24 19:57:43.222935"], ["name", "Jabba the Hutt"], ["body", "You need a teacher. I can show you the ways of the Force."], ["description", "Nng ooma hnn-rowr nng gwyaaaag hnn-rowr gwyaaaag yrroonn wyaaaaaa."], ["user_id", 2]]
+  [1m[35m (118.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:43.357659"], ["updated_at", "2018-04-24 19:57:43.357659"], ["name", "Ben Solo"], ["body", "The senate will decide your fate."], ["description", "Nng ooma?"], ["user_id", 1]]
+  [1m[35m (82.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:43.452408"], ["updated_at", "2018-04-24 19:57:43.452408"], ["name", "Mon Mothma"], ["body", "Show me again, grandfather, and I will finish what you started."], ["description", "Rarr mumwa rarr kabukk huewaa wua nng wua youw!"], ["user_id", 7]]
+  [1m[35m (99.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:43.563796"], ["updated_at", "2018-04-24 19:57:43.563796"], ["name", "Ezra Bridger"], ["body", "The Shield is down! Commence attack on the Death star's main reactor. "], ["description", "Ga muaa ruh ahuma muaa hnn-rowr hnn-rowr yrroonn ga ru kabukk."], ["user_id", 9]]
+  [1m[35m (97.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:43.680171"], ["updated_at", "2018-04-24 19:57:43.680171"], ["name", "Panaka"], ["body", "Sone guru ye buya nyah oo won spasteega koo shu coon bon duwa weeptee. (He has no time for smugglers who drop their shipments at the first sign of an Imperial cruiser.)"], ["description", "Roo huewaa ooma ma kabukk yrroonn?"], ["user_id", 1]]
+  [1m[35m (78.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:43.776066"], ["updated_at", "2018-04-24 19:57:43.776066"], ["name", "Saw Gerrera"], ["body", "I won't have you question my methods."], ["description", "Youw roo ga ahuma?"], ["user_id", 7]]
+  [1m[35m (135.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:43.927878"], ["updated_at", "2018-04-24 19:57:43.927878"], ["name", "Panaka"], ["body", "The Force will be with you. Always."], ["description", "Ahuma ooma wyaaaaaa muaa yrroonn ooma wua ur rarr ooma youw."], ["user_id", 10]]
+  [1m[35m (90.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:44.035173"], ["updated_at", "2018-04-24 19:57:44.035173"], ["name", "Darth Caedus"], ["body", "Sorry to interrupt your playtime, Grumpy, but wouldn't you prefer a challenge? "], ["description", "Muaa yrroonn ur rarr?"], ["user_id", 7]]
+  [1m[35m (82.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:44.132754"], ["updated_at", "2018-04-24 19:57:44.132754"], ["name", "Wedge Antilles"], ["body", "I assume you need something. Desperately."], ["description", "Wyaaaaaa hnn-rowr kabukk hnn-rowr ur ur ur!"], ["user_id", 5]]
+  [1m[35m (97.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:44.244441"], ["updated_at", "2018-04-24 19:57:44.244441"], ["name", "Ki-Adi-Mundi"], ["body", "I have a bad feeling about..."], ["description", "Ahuma ur wyogg roooarrgh ahuma wua kabukk wyogg ahuma wua!"], ["user_id", 5]]
+  [1m[35m (109.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:44.367930"], ["updated_at", "2018-04-24 19:57:44.367930"], ["name", "Sheev Palpatine"], ["body", "The garbage'll do"], ["description", "Ur gwyaaaag roo gwyaaaag nng!"], ["user_id", 8]]
+  [1m[35m (82.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:44.466330"], ["updated_at", "2018-04-24 19:57:44.466330"], ["name", "Darth Maul"], ["body", "Don’t you call me a mindless philosopher, you overweight glob of grease!"], ["description", "Mumwa ru youw?"], ["user_id", 8]]
+  [1m[35m (112.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:44.623201"], ["updated_at", "2018-04-24 19:57:44.623201"], ["name", "Grand Admiral Thrawn"], ["body", "Mesa called Jar-Jar Binks. Mesa your humble servant."], ["description", "Gwyaaaag mumwa wyaaaaaa ur!"], ["user_id", 2]]
+  [1m[35m (105.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:44.742166"], ["updated_at", "2018-04-24 19:57:44.742166"], ["name", "Ki-Adi-Mundi"], ["body", "Why you slimy, double-crossing, no-good swindler. You've got a lot of guts coming here, after what you pulled."], ["description", "Youw hnn-rowr kabukk yrroonn kabukk ru nng ru."], ["user_id", 2]]
+  [1m[35m (83.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:44.841586"], ["updated_at", "2018-04-24 19:57:44.841586"], ["name", "Ezra Bridger"], ["body", "She may not look like much, but she's got it where it counts, kid."], ["description", "Ga wyaaaaaa mumwa ooma ma?"], ["user_id", 2]]
+  [1m[35m (74.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:44.930006"], ["updated_at", "2018-04-24 19:57:44.930006"], ["name", "Chirrut Imwe"], ["body", "Lude eveela deesa... (drooped their cargo at the sight...)"], ["description", "Ru ga kabukk yrroonn ru gwyaaaag rarr roooarrgh ooma wua?"], ["user_id", 2]]
+  [1m[35m (93.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:45.038336"], ["updated_at", "2018-04-24 19:57:45.038336"], ["name", "Ahsoka Tano"], ["body", "The Force is strong with him. The son of Skywalker must not become a Jedi."], ["description", "Wyaaaaaa ruh mumwa nng wyaaaaaa ooma youw."], ["user_id", 2]]
+  [1m[35m (91.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:45.147933"], ["updated_at", "2018-04-24 19:57:45.147933"], ["name", "Qui-Gon Jinn"], ["body", "El jaya kulpa intick kuny ku suwa. (If you give it to me, I might forget I found you.)"], ["description", "Ur ruh gwyaaaag kabukk ga ru ooma mumwa?"], ["user_id", 6]]
+  [1m[35m (68.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:45.235578"], ["updated_at", "2018-04-24 19:57:45.235578"], ["name", "Ki-Adi-Mundi"], ["body", "Sorry to interrupt your playtime, Grumpy, but wouldn't you prefer a challenge? "], ["description", "Gwyaaaag ruh wua ur ga ruh roo ahuma kabukk muaa roo?"], ["user_id", 8]]
+  [1m[35m (98.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:45.348633"], ["updated_at", "2018-04-24 19:57:45.348633"], ["name", "Sabine Wren"], ["body", "I'm a big deal in the Resistance. Which puts a real target on my back."], ["description", "Ru kabukk rarr."], ["user_id", 8]]
+  [1m[35m (69.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:45.433217"], ["updated_at", "2018-04-24 19:57:45.433217"], ["name", "Saw Gerrera"], ["body", "na meeto do buny dunko la cho ya. (you won't be able to get near a civilized system.)"], ["description", "Roooarrgh wua hnn-rowr ga ruh ooma roooarrgh huewaa roo ma?"], ["user_id", 1]]
+  [1m[35m (83.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:45.538537"], ["updated_at", "2018-04-24 19:57:45.538537"], ["name", "Jyn Erso"], ["body", "Twice the pride, double the fall."], ["description", "Ga ur ur."], ["user_id", 3]]
+  [1m[35m (113.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:45.672191"], ["updated_at", "2018-04-24 19:57:45.672191"], ["name", "Obi-Wan Kenobi"], ["body", "Solo, we'll figure it out. We'll use the Force."], ["description", "Ooma!"], ["user_id", 7]]
+  [1m[35m (65.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:45.757006"], ["updated_at", "2018-04-24 19:57:45.757006"], ["name", "Watto"], ["body", "It's the ship that made the Kessel Run in less than 12 parsecs."], ["description", "Ur kabukk gwyaaaag huewaa kabukk mumwa gwyaaaag!"], ["user_id", 8]]
+  [1m[35m (71.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:45.853484"], ["updated_at", "2018-04-24 19:57:45.853484"], ["name", "Finn"], ["body", "Koona t'chuta Solo? (Going somewhere Solo?)"], ["description", "Wyogg wua hnn-rowr ru huewaa kabukk ma ooma?"], ["user_id", 8]]
+  [1m[35m (82.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:45.954916"], ["updated_at", "2018-04-24 19:57:45.954916"], ["name", "Borvo the Hutt"], ["body", "Careful, Ren, that your personal interests not interfere with orders from Leader Snoke."], ["description", "Ma gwyaaaag nng gwyaaaag."], ["user_id", 10]]
+  [1m[35m (95.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:46.067988"], ["updated_at", "2018-04-24 19:57:46.067988"], ["name", "Han Solo"], ["body", "Once something is known, it cannot be unknown."], ["description", "Wyaaaaaa yrroonn kabukk wyogg!"], ["user_id", 4]]
+  [1m[35m (100.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:46.192315"], ["updated_at", "2018-04-24 19:57:46.192315"], ["name", "Rose Tico"], ["body", "A Jedi uses the Force for knowledge and defense, never for attack."], ["description", "Ma huewaa rarr wua wyogg ur wyogg wyogg roooarrgh rarr huewaa."], ["user_id", 6]]
+  [1m[35m (97.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:46.310299"], ["updated_at", "2018-04-24 19:57:46.310299"], ["name", "Nute Gunray"], ["body", "Yipe! How wude!"], ["description", "Ruh ga gwyaaaag yrroonn ahuma roooarrgh yrroonn ru youw?"], ["user_id", 5]]
+  [1m[35m (98.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:46.425936"], ["updated_at", "2018-04-24 19:57:46.425936"], ["name", "Count Dooku"], ["body", "Not even the dark side can give you that power."], ["description", "Nng wyaaaaaa rarr ruh."], ["user_id", 4]]
+  [1m[35m (80.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (3.3ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:46.526364"], ["updated_at", "2018-04-24 19:57:46.526364"], ["name", "Supreme Leader Snoke"], ["body", "You don’t need to see his identification. These aren’t the droids you’re looking for."], ["description", "Ga roooarrgh mumwa ru ma ga mumwa ga mumwa roooarrgh ga!"], ["user_id", 7]]
+  [1m[35m (80.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:46.624370"], ["updated_at", "2018-04-24 19:57:46.624370"], ["name", "Ki-Adi-Mundi"], ["body", "Show me again, grandfather, and I will finish what you started."], ["description", "Ga nng wyaaaaaa kabukk!"], ["user_id", 7]]
+  [1m[35m (82.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:46.726755"], ["updated_at", "2018-04-24 19:57:46.726755"], ["name", "Lyra Erso"], ["body", "Twice the pride, double the fall."], ["description", "Rarr wyogg gwyaaaag wyaaaaaa ru ga wyaaaaaa nng wua nng."], ["user_id", 10]]
+  [1m[35m (129.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:46.879908"], ["updated_at", "2018-04-24 19:57:46.879908"], ["name", "Rey"], ["body", "You may use any methods necessary, but I want them alive. No disintegrations!"], ["description", "Ma roooarrgh mumwa roooarrgh youw wua ruh kabukk rarr hnn-rowr wyaaaaaa."], ["user_id", 10]]
+  [1m[35m (90.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:46.989284"], ["updated_at", "2018-04-24 19:57:46.989284"], ["name", "Lando Calrissian"], ["body", "Twice the pride, double the fall."], ["description", "Ru kabukk hnn-rowr hnn-rowr wyogg?"], ["user_id", 9]]
+  [1m[35m (77.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:47.082217"], ["updated_at", "2018-04-24 19:57:47.082217"], ["name", "Chewbacca"], ["body", "Just for once, let me look on you with my own eyes."], ["description", "Hnn-rowr roo wyogg ma roo youw roo ru ooma."], ["user_id", 8]]
+  [1m[35m (109.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:47.211352"], ["updated_at", "2018-04-24 19:57:47.211352"], ["name", "Bail Organa"], ["body", "Now, witness the power of this fully operational battle station."], ["description", "Roo wua youw kabukk nng ruh ahuma ru wyaaaaaa mumwa!"], ["user_id", 4]]
+  [1m[35m (88.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:47.315677"], ["updated_at", "2018-04-24 19:57:47.315677"], ["name", "Sheev Palpatine"], ["body", "Careful, Ren, that your personal interests not interfere with orders from Leader Snoke."], ["description", "Wyaaaaaa wua wua mumwa?"], ["user_id", 3]]
+  [1m[35m (135.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (4.8ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:47.471587"], ["updated_at", "2018-04-24 19:57:47.471587"], ["name", "Darth Sidious"], ["body", "Exsqueeze me"], ["description", "Ahuma ga wyaaaaaa ga wyogg ga yrroonn."], ["user_id", 9]]
+  [1m[35m (72.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.5ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:47.568956"], ["updated_at", "2018-04-24 19:57:47.568956"], ["name", "Greedo"], ["body", "Somebody has to save our skins. Into the garbage chute, flyboy!"], ["description", "Mumwa ahuma wua ruh rarr?"], ["user_id", 1]]
+  [1m[35m (68.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:47.659816"], ["updated_at", "2018-04-24 19:57:47.659816"], ["name", "Lyra Erso"], ["body", "Would somebody get this big walking carpet out of my way?"], ["description", "Wua rarr ru muaa wyaaaaaa wyogg!"], ["user_id", 3]]
+  [1m[35m (92.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:47.770992"], ["updated_at", "2018-04-24 19:57:47.770992"], ["name", "Nute Gunray"], ["body", "Once something is known, it cannot be unknown."], ["description", "Nng roo ga roo gwyaaaag nng!"], ["user_id", 8]]
+  [1m[35m (110.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:47.901334"], ["updated_at", "2018-04-24 19:57:47.901334"], ["name", "Ki-Adi-Mundi"], ["body", "Anakin you're breaking my heart, you're going down a path I can't follow."], ["description", "Nng ooma!"], ["user_id", 4]]
+  [1m[35m (87.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:48.005160"], ["updated_at", "2018-04-24 19:57:48.005160"], ["name", "Supreme Leader Snoke"], ["body", "The Republic doesn't exist out here. We must survive on our own."], ["description", "Ga ahuma wua ma ur ooma?"], ["user_id", 8]]
+  [1m[35m (193.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:48.218837"], ["updated_at", "2018-04-24 19:57:48.218837"], ["name", "Bendu"], ["body", "The garbage'll do"], ["description", "Ruh ahuma roo?"], ["user_id", 9]]
+  [1m[35m (107.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:48.346039"], ["updated_at", "2018-04-24 19:57:48.346039"], ["name", "Grand Admiral Thrawn"], ["body", "We have no choice, General Calrissian! Our cruisers can't repel firepower of that magnitude!"], ["description", "Nng huewaa kabukk kabukk gwyaaaag yrroonn."], ["user_id", 9]]
+  [1m[35m (79.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (4.1ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:57:48.450067"], ["updated_at", "2018-04-24 19:57:48.450067"], ["name", "Padme Amidala"], ["body", "Twice the pride, double the fall."], ["description", "Muaa roo hnn-rowr roooarrgh youw yrroonn roo?"], ["user_id", 7]]
+  [1m[35m (79.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:33.975722"], ["updated_at", "2018-04-24 19:58:33.975722"], ["user", "Sullustan"]]
+  [1m[35m (87.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:34.069730"], ["updated_at", "2018-04-24 19:58:34.069730"], ["user", "Wookiee"]]
+  [1m[35m (105.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:34.181424"], ["updated_at", "2018-04-24 19:58:34.181424"], ["user", "Dathomirian"]]
+  [1m[35m (85.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:34.271437"], ["updated_at", "2018-04-24 19:58:34.271437"], ["user", "Dathomirian"]]
+  [1m[35m (99.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:34.376244"], ["updated_at", "2018-04-24 19:58:34.376244"], ["user", "Gungan"]]
+  [1m[35m (72.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:34.457143"], ["updated_at", "2018-04-24 19:58:34.457143"], ["user", "Dathomirian"]]
+  [1m[35m (102.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:34.564486"], ["updated_at", "2018-04-24 19:58:34.564486"], ["user", "Gungan"]]
+  [1m[35m (81.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:34.652034"], ["updated_at", "2018-04-24 19:58:34.652034"], ["user", "Wookiee"]]
+  [1m[35m (101.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:34.759209"], ["updated_at", "2018-04-24 19:58:34.759209"], ["user", "Neimoidian"]]
+  [1m[35m (106.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "user") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:34.870961"], ["updated_at", "2018-04-24 19:58:34.870961"], ["user", "Dathomirian"]]
+  [1m[35m (122.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:35.067737"], ["updated_at", "2018-04-24 19:58:35.067737"], ["name", "Saw Gerrera"], ["body", "Remember your focus determines your reality."], ["description", "Roooarrgh ur youw ma ma?"], ["user_id", 7]]
+  [1m[35m (99.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:35.180889"], ["updated_at", "2018-04-24 19:58:35.180889"], ["name", "Ezra Bridger"], ["body", "Threepio, tell them if they don't do as you wish, you'll become angry and use your magic"], ["description", "Muaa ma kabukk ru yrroonn."], ["user_id", 1]]
+  [1m[35m (81.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:35.279117"], ["updated_at", "2018-04-24 19:58:35.279117"], ["name", "Yoda"], ["body", "That's no moon. It's a space station."], ["description", "Hnn-rowr hnn-rowr ruh muaa mumwa gwyaaaag!"], ["user_id", 1]]
+  [1m[35m (126.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:35.419036"], ["updated_at", "2018-04-24 19:58:35.419036"], ["name", "Ahsoka Tano"], ["body", "How you doin' Chewbacca? Still hanging around with this loser?"], ["description", "Ahuma youw roo roo muaa youw roo hnn-rowr ma ga!"], ["user_id", 5]]
+  [1m[35m (108.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:35.547454"], ["updated_at", "2018-04-24 19:58:35.547454"], ["name", "Asajj Ventress"], ["body", "But I was going into Tosche Station to pick up some power converters!"], ["description", "Youw wyaaaaaa ahuma wyogg yrroonn ru yrroonn ru wyaaaaaa."], ["user_id", 7]]
+  [1m[35m (68.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:35.630428"], ["updated_at", "2018-04-24 19:58:35.630428"], ["name", "Lando Calrissian"], ["body", "Just for once, let me look on you with my own eyes."], ["description", "Ahuma ruh huewaa!"], ["user_id", 3]]
+  [1m[35m (103.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:35.748148"], ["updated_at", "2018-04-24 19:58:35.748148"], ["name", "Ahsoka Tano"], ["body", "Sorry to interrupt your playtime, Grumpy, but wouldn't you prefer a challenge? "], ["description", "Muaa nng huewaa hnn-rowr youw wua?"], ["user_id", 10]]
+  [1m[35m (82.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:35.848216"], ["updated_at", "2018-04-24 19:58:35.848216"], ["name", "Shmi Skywalker"], ["body", "The senate will decide your fate."], ["description", "Ur yrroonn roo hnn-rowr."], ["user_id", 9]]
+  [1m[35m (115.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:35.978329"], ["updated_at", "2018-04-24 19:58:35.978329"], ["name", "Kylo Ren"], ["body", "Once something is known, it cannot be unknown."], ["description", "Nng mumwa gwyaaaag wyaaaaaa roooarrgh ga roo hnn-rowr!"], ["user_id", 8]]
+  [1m[35m (85.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:36.080382"], ["updated_at", "2018-04-24 19:58:36.080382"], ["name", "Han Solo"], ["body", "The Republic doesn't exist out here. We must survive on our own."], ["description", "Roooarrgh mumwa yrroonn roo roo hnn-rowr nng muaa wyogg wyogg."], ["user_id", 4]]
+  [1m[35m (83.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:36.178884"], ["updated_at", "2018-04-24 19:58:36.178884"], ["name", "Obi-Wan Kenobi"], ["body", "You know, that little droid is going to cause me a lot of trouble."], ["description", "Ur kabukk youw ru ga ga ooma."], ["user_id", 9]]
+  [1m[35m (86.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:36.281845"], ["updated_at", "2018-04-24 19:58:36.281845"], ["name", "Sebulba"], ["body", "Exsqueeze me"], ["description", "Roooarrgh wua nng wua roooarrgh?"], ["user_id", 5]]
+  [1m[35m (102.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:36.403076"], ["updated_at", "2018-04-24 19:58:36.403076"], ["name", "Kylo Ren"], ["body", "Do. Or do not. There is no try."], ["description", "Ahuma rarr wyogg roo ruh!"], ["user_id", 3]]
+  [1m[35m (81.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:36.500629"], ["updated_at", "2018-04-24 19:58:36.500629"], ["name", "Ki-Adi-Mundi"], ["body", "Wars not make one great."], ["description", "Kabukk muaa kabukk ruh mumwa?"], ["user_id", 8]]
+  [1m[35m (120.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:36.636970"], ["updated_at", "2018-04-24 19:58:36.636970"], ["name", "Greedo"], ["body", "You are a member of the rebel alliance, and a traitor."], ["description", "Roooarrgh ru roooarrgh muaa youw hnn-rowr kabukk wyogg rarr youw?"], ["user_id", 5]]
+  [1m[35m (120.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:36.773641"], ["updated_at", "2018-04-24 19:58:36.773641"], ["name", "Darth Caedus"], ["body", "Truly wonderful, the mind of a child is."], ["description", "Mumwa mumwa wyaaaaaa wua yrroonn."], ["user_id", 7]]
+  [1m[35m (67.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:36.859068"], ["updated_at", "2018-04-24 19:58:36.859068"], ["name", "Galen Erso"], ["body", "I have a bad feeling about this."], ["description", "Muaa hnn-rowr youw wyaaaaaa roooarrgh?"], ["user_id", 5]]
+  [1m[35m (68.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:36.946878"], ["updated_at", "2018-04-24 19:58:36.946878"], ["name", "Darth Vader"], ["body", "I have a bad feeling about..."], ["description", "Ma gwyaaaag roo nng ruh yrroonn ma ruh wyaaaaaa ru roo?"], ["user_id", 1]]
+  [1m[35m (81.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:37.046341"], ["updated_at", "2018-04-24 19:58:37.046341"], ["name", "Yoda"], ["body", "Now, witness the power of this fully operational battle station."], ["description", "Wyaaaaaa muaa ma hnn-rowr nng ruh gwyaaaag!"], ["user_id", 9]]
+  [1m[35m (98.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:37.159909"], ["updated_at", "2018-04-24 19:58:37.159909"], ["name", "Padme Amidala"], ["body", "The Republic doesn't exist out here. We must survive on our own."], ["description", "Ga ahuma wyaaaaaa!"], ["user_id", 10]]
+  [1m[35m (131.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:37.307200"], ["updated_at", "2018-04-24 19:58:37.307200"], ["name", "Mon Mothma"], ["body", "Just for once, let me look on you with my own eyes."], ["description", "Ga wyaaaaaa rarr muaa youw roo nng ga hnn-rowr?"], ["user_id", 7]]
+  [1m[35m (112.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (4.6ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:37.437782"], ["updated_at", "2018-04-24 19:58:37.437782"], ["name", "Lyra Erso"], ["body", "If they follow standard Imperial procedure, they'll dump their garbage before they go to light-speed."], ["description", "Ma roo hnn-rowr roooarrgh rarr ruh youw gwyaaaag mumwa!"], ["user_id", 7]]
+  [1m[35m (110.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:37.570179"], ["updated_at", "2018-04-24 19:58:37.570179"], ["name", "Borvo the Hutt"], ["body", "I felt a great disturbance in the Force. As if millions of voices suddenly cried out in terror and were suddenly silenced."], ["description", "Nng ma?"], ["user_id", 3]]
+  [1m[35m (105.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:37.692022"], ["updated_at", "2018-04-24 19:58:37.692022"], ["name", "Jabba the Hutt"], ["body", "You can't stop change any more than you can stop the suns from setting."], ["description", "Rarr!"], ["user_id", 9]]
+  [1m[35m (104.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:37.813741"], ["updated_at", "2018-04-24 19:58:37.813741"], ["name", "Mon Mothma"], ["body", "Han, ma bookie, keel-ee calleya ku kah. (Han, my boy, you disappoint me.)"], ["description", "Wyaaaaaa roo!"], ["user_id", 1]]
+  [1m[35m (113.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:37.947586"], ["updated_at", "2018-04-24 19:58:37.947586"], ["name", "Darth Caedus"], ["body", "That is why you fail."], ["description", "Youw ma roooarrgh hnn-rowr ahuma?"], ["user_id", 4]]
+  [1m[35m (106.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:38.071784"], ["updated_at", "2018-04-24 19:58:38.071784"], ["name", "Sabine Wren"], ["body", "Why you slimy, double-crossing, no-good swindler. You've got a lot of guts coming here, after what you pulled."], ["description", "Huewaa wyaaaaaa yrroonn yrroonn ga ma ruh youw ga!"], ["user_id", 7]]
+  [1m[35m (104.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:38.192920"], ["updated_at", "2018-04-24 19:58:38.192920"], ["name", "Mon Mothma"], ["body", "You're smarter than a tree, aren't you?"], ["description", "Yrroonn roo hnn-rowr wyogg mumwa hnn-rowr!"], ["user_id", 7]]
+  [1m[35m (79.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:38.291140"], ["updated_at", "2018-04-24 19:58:38.291140"], ["name", "Jango Fett"], ["body", "He's no good to me dead."], ["description", "Ooma ga nng huewaa gwyaaaag muaa gwyaaaag ga."], ["user_id", 10]]
+  [1m[35m (104.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:38.412764"], ["updated_at", "2018-04-24 19:58:38.412764"], ["name", "Savage Opress"], ["body", "An elegant weapon for a more civilized age."], ["description", "Wua."], ["user_id", 10]]
+  [1m[35m (86.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:38.518099"], ["updated_at", "2018-04-24 19:58:38.518099"], ["name", "Finn"], ["body", "Do. Or do not. There is no try."], ["description", "Kabukk gwyaaaag yrroonn ooma hnn-rowr ma rarr nng kabukk!"], ["user_id", 3]]
+  [1m[35m (125.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:38.663058"], ["updated_at", "2018-04-24 19:58:38.663058"], ["name", "Poe Dameron"], ["body", "Show me again, grandfather, and I will finish what you started."], ["description", "Yrroonn ga ooma ma gwyaaaag!"], ["user_id", 3]]
+  [1m[35m (88.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:38.766979"], ["updated_at", "2018-04-24 19:58:38.766979"], ["name", "Greedo"], ["body", "I assume you need something. Desperately."], ["description", "Ahuma nng ruh ma youw youw?"], ["user_id", 6]]
+  [1m[35m (76.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:38.862026"], ["updated_at", "2018-04-24 19:58:38.862026"], ["name", "Hera Syndulla"], ["body", "You can't stop change any more than you can stop the suns from setting."], ["description", "Wua ahuma rarr ahuma ru!"], ["user_id", 1]]
+  [1m[35m (99.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:38.979114"], ["updated_at", "2018-04-24 19:58:38.979114"], ["name", "Watto"], ["body", "How you doin' Chewbacca? Still hanging around with this loser?"], ["description", "Huewaa wyogg nng ur ru wyaaaaaa nng ruh wua?"], ["user_id", 5]]
+  [1m[35m (100.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (5.6ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:39.096390"], ["updated_at", "2018-04-24 19:58:39.096390"], ["name", "Asajj Ventress"], ["body", "Hold me, like you did by the lake on Naboo; so long ago when there was nothing but our love. No politics, no plotting, no war."], ["description", "Roo nng wua roo yrroonn roo wua ru huewaa?"], ["user_id", 3]]
+  [1m[35m (85.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:39.209128"], ["updated_at", "2018-04-24 19:58:39.209128"], ["name", "Maz Kanata"], ["body", "I assume you need something. Desperately."], ["description", "Roo!"], ["user_id", 1]]
+  [1m[35m (88.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:39.314739"], ["updated_at", "2018-04-24 19:58:39.314739"], ["name", "Jango Fett"], ["body", "Once something is known, it cannot be unknown."], ["description", "Wyogg wyogg muaa ur ahuma ur!"], ["user_id", 3]]
+  [1m[35m (93.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:39.425787"], ["updated_at", "2018-04-24 19:58:39.425787"], ["name", "Chirrut Imwe"], ["body", "Talk Jabba. (Tell that to Jabba.)"], ["description", "Ru youw rarr roooarrgh nng ahuma ruh."], ["user_id", 4]]
+  [1m[35m (107.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (2.5ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:39.549779"], ["updated_at", "2018-04-24 19:58:39.549779"], ["name", "Han Solo"], ["body", "I assume you need something. Desperately."], ["description", "Roooarrgh."], ["user_id", 2]]
+  [1m[35m (113.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:39.684701"], ["updated_at", "2018-04-24 19:58:39.684701"], ["name", "Boba Fett"], ["body", "Twice the pride, double the fall."], ["description", "Ooma muaa wyogg nng nng roooarrgh hnn-rowr?"], ["user_id", 3]]
+  [1m[35m (79.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:39.782686"], ["updated_at", "2018-04-24 19:58:39.782686"], ["name", "Lando Calrissian"], ["body", "I have a bad feeling about..."], ["description", "Muaa roooarrgh ru rarr gwyaaaag kabukk roo roooarrgh roo!"], ["user_id", 7]]
+  [1m[35m (132.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:39.938508"], ["updated_at", "2018-04-24 19:58:39.938508"], ["name", "Kylo Ren"], ["body", "Jedi business, go back to your drinks!"], ["description", "Ooma ahuma ma muaa wyaaaaaa wyaaaaaa ahuma nng kabukk ru?"], ["user_id", 4]]
+  [1m[35m (80.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:40.038966"], ["updated_at", "2018-04-24 19:58:40.038966"], ["name", "Sheev Palpatine"], ["body", "I will start my operations here, and pull the rebels apart piece by piece. They'll be the architects of their own destruction."], ["description", "Roooarrgh yrroonn ur wua?"], ["user_id", 4]]
+  [1m[35m (107.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:40.161466"], ["updated_at", "2018-04-24 19:58:40.161466"], ["name", "Rey"], ["body", "Aren't you a little short for a Stormtrooper?"], ["description", "Hnn-rowr ur wyogg nng!"], ["user_id", 1]]
+  [1m[35m (106.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:40.284039"], ["updated_at", "2018-04-24 19:58:40.284039"], ["name", "Darth Vader"], ["body", "I assume you need something. Desperately."], ["description", "Huewaa ooma ga roo."], ["user_id", 5]]
+  [1m[35m (90.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:40.397334"], ["updated_at", "2018-04-24 19:58:40.397334"], ["name", "Han Solo"], ["body", "Eek bon chee ko pa na green. (I'll put a price on your head so big...)"], ["description", "Hnn-rowr hnn-rowr wua ruh gwyaaaag kabukk!"], ["user_id", 5]]
+  [1m[35m (120.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:40.538013"], ["updated_at", "2018-04-24 19:58:40.538013"], ["name", "Grand Moff Tarkin"], ["body", "Hold me, like you did by the lake on Naboo; so long ago when there was nothing but our love. No politics, no plotting, no war."], ["description", "Ma ru wyogg muaa roooarrgh nng nng wyogg ga roo."], ["user_id", 1]]
+  [1m[35m (105.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:40.665126"], ["updated_at", "2018-04-24 19:58:40.665126"], ["name", "Saw Gerrera"], ["body", "You will remove these restraints and leave this cell with the door open."], ["description", "Ruh muaa ur ma ur ur hnn-rowr!"], ["user_id", 9]]
+  [1m[35m (83.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at", "name", "body", "description", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:40.770451"], ["updated_at", "2018-04-24 19:58:40.770451"], ["name", "Greedo"], ["body", "Why, you stuck-up, half-witted, scruffy-looking nerf herder!"], ["description", "Ruh youw wyogg ma ruh ru muaa ma!"], ["user_id", 8]]
+  [1m[35m (104.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.3ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:40.919100"], ["updated_at", "2018-04-24 19:58:40.919100"], ["name", "Death Star"]]
+  [1m[35m (65.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:40.998347"], ["updated_at", "2018-04-24 19:58:40.998347"], ["name", "Endor"]]
+  [1m[35m (87.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:41.098286"], ["updated_at", "2018-04-24 19:58:41.098286"], ["name", "Dathomir"]]
+  [1m[35m (94.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:41.200226"], ["updated_at", "2018-04-24 19:58:41.200226"], ["name", "Jedha"]]
+  [1m[35m (87.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:41.297778"], ["updated_at", "2018-04-24 19:58:41.297778"], ["name", "Onderon"]]
+  [1m[35m (66.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:41.377373"], ["updated_at", "2018-04-24 19:58:41.377373"], ["name", "Death Star"]]
+  [1m[35m (78.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:41.464544"], ["updated_at", "2018-04-24 19:58:41.464544"], ["name", "Bespin"]]
+  [1m[35m (81.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:41.557479"], ["updated_at", "2018-04-24 19:58:41.557479"], ["name", "Cantonica"]]
+  [1m[35m (75.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:41.641898"], ["updated_at", "2018-04-24 19:58:41.641898"], ["name", "Jedha"]]
+  [1m[35m (69.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:41.719582"], ["updated_at", "2018-04-24 19:58:41.719582"], ["name", "Onderon"]]
+  [1m[35m (96.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:41.824108"], ["updated_at", "2018-04-24 19:58:41.824108"], ["name", "Mustafar"]]
+  [1m[35m (132.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:41.964061"], ["updated_at", "2018-04-24 19:58:41.964061"], ["name", "Cloud City"]]
+  [1m[35m (84.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:42.058202"], ["updated_at", "2018-04-24 19:58:42.058202"], ["name", "Endor"]]
+  [1m[35m (100.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:42.165746"], ["updated_at", "2018-04-24 19:58:42.165746"], ["name", "Ahch-To"]]
+  [1m[35m (71.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:42.245454"], ["updated_at", "2018-04-24 19:58:42.245454"], ["name", "Yavin 4"]]
+  [1m[35m (93.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:42.347462"], ["updated_at", "2018-04-24 19:58:42.347462"], ["name", "Jedha"]]
+  [1m[35m (61.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:42.418761"], ["updated_at", "2018-04-24 19:58:42.418761"], ["name", "Mustafar"]]
+  [1m[35m (92.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:42.524325"], ["updated_at", "2018-04-24 19:58:42.524325"], ["name", "Tatooine"]]
+  [1m[35m (81.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:42.615360"], ["updated_at", "2018-04-24 19:58:42.615360"], ["name", "Crait"]]
+  [1m[35m (115.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:42.744927"], ["updated_at", "2018-04-24 19:58:42.744927"], ["name", "Crait"]]
+  [1m[35m (106.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:42.858826"], ["updated_at", "2018-04-24 19:58:42.858826"], ["name", "Crait"]]
+  [1m[35m (111.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:42.978673"], ["updated_at", "2018-04-24 19:58:42.978673"], ["name", "Kashyyyk"]]
+  [1m[35m (114.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:43.103113"], ["updated_at", "2018-04-24 19:58:43.103113"], ["name", "Hosnian Prime"]]
+  [1m[35m (88.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:43.205910"], ["updated_at", "2018-04-24 19:58:43.205910"], ["name", "Kamino"]]
+  [1m[35m (107.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:43.323997"], ["updated_at", "2018-04-24 19:58:43.323997"], ["name", "Dathomir"]]
+  [1m[35m (130.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:43.461677"], ["updated_at", "2018-04-24 19:58:43.461677"], ["name", "Endor"]]
+  [1m[35m (110.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:43.581177"], ["updated_at", "2018-04-24 19:58:43.581177"], ["name", "Lothal"]]
+  [1m[35m (86.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:43.679648"], ["updated_at", "2018-04-24 19:58:43.679648"], ["name", "Mustafar"]]
+  [1m[35m (101.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:43.791344"], ["updated_at", "2018-04-24 19:58:43.791344"], ["name", "Death Star"]]
+  [1m[35m (90.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:43.893371"], ["updated_at", "2018-04-24 19:58:43.893371"], ["name", "Bespin"]]
+  [1m[35m (78.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:43.980577"], ["updated_at", "2018-04-24 19:58:43.980577"], ["name", "Jedha"]]
+  [1m[35m (79.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:44.069323"], ["updated_at", "2018-04-24 19:58:44.069323"], ["name", "Kamino"]]
+  [1m[35m (101.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:44.179948"], ["updated_at", "2018-04-24 19:58:44.179948"], ["name", "Ryloth"]]
+  [1m[35m (113.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:44.304365"], ["updated_at", "2018-04-24 19:58:44.304365"], ["name", "DQar"]]
+  [1m[35m (72.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:44.387833"], ["updated_at", "2018-04-24 19:58:44.387833"], ["name", "Jedha"]]
+  [1m[35m (74.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (5.8ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:44.476297"], ["updated_at", "2018-04-24 19:58:44.476297"], ["name", "Endor"]]
+  [1m[35m (71.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:44.565366"], ["updated_at", "2018-04-24 19:58:44.565366"], ["name", "Ahch-To"]]
+  [1m[35m (105.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.4ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:44.680866"], ["updated_at", "2018-04-24 19:58:44.680866"], ["name", "Mygeeto"]]
+  [1m[35m (84.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:44.779192"], ["updated_at", "2018-04-24 19:58:44.779192"], ["name", "Alderaan"]]
+  [1m[35m (102.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:44.891899"], ["updated_at", "2018-04-24 19:58:44.891899"], ["name", "Mustafar"]]
+  [1m[35m (136.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:45.037443"], ["updated_at", "2018-04-24 19:58:45.037443"], ["name", "Tatooine"]]
+  [1m[35m (85.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:45.131444"], ["updated_at", "2018-04-24 19:58:45.131444"], ["name", "Kashyyyk"]]
+  [1m[35m (109.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:45.247364"], ["updated_at", "2018-04-24 19:58:45.247364"], ["name", "Scarif"]]
+  [1m[35m (77.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:45.333906"], ["updated_at", "2018-04-24 19:58:45.333906"], ["name", "Onderon"]]
+  [1m[35m (79.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:45.420897"], ["updated_at", "2018-04-24 19:58:45.420897"], ["name", "Tatooine"]]
+  [1m[35m (80.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:45.509830"], ["updated_at", "2018-04-24 19:58:45.509830"], ["name", "Ryloth"]]
+  [1m[35m (82.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:45.601748"], ["updated_at", "2018-04-24 19:58:45.601748"], ["name", "Mandalore"]]
+  [1m[35m (87.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:45.703517"], ["updated_at", "2018-04-24 19:58:45.703517"], ["name", "Mandalore"]]
+  [1m[35m (85.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:45.799861"], ["updated_at", "2018-04-24 19:58:45.799861"], ["name", "Death Star"]]
+  [1m[35m (75.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:45.887716"], ["updated_at", "2018-04-24 19:58:45.887716"], ["name", "Eadu"]]
+  [1m[35m (75.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:45.975749"], ["updated_at", "2018-04-24 19:58:45.975749"], ["name", "Mustafar"]]
+  [1m[35m (104.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.4ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:46.090192"], ["updated_at", "2018-04-24 19:58:46.090192"], ["name", "Yavin 4"]]
+  [1m[35m (94.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:46.199597"], ["updated_at", "2018-04-24 19:58:46.199597"], ["name", "Mygeeto"]]
+  [1m[35m (77.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:46.289172"], ["updated_at", "2018-04-24 19:58:46.289172"], ["name", "Dagobah"]]
+  [1m[35m (115.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:46.413276"], ["updated_at", "2018-04-24 19:58:46.413276"], ["name", "Mandalore"]]
+  [1m[35m (84.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:46.507641"], ["updated_at", "2018-04-24 19:58:46.507641"], ["name", "Cloud City"]]
+  [1m[35m (93.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:46.609037"], ["updated_at", "2018-04-24 19:58:46.609037"], ["name", "Utapau"]]
+  [1m[35m (79.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:46.698894"], ["updated_at", "2018-04-24 19:58:46.698894"], ["name", "Dathomir"]]
+  [1m[35m (87.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:46.798856"], ["updated_at", "2018-04-24 19:58:46.798856"], ["name", "Hoth"]]
+  [1m[35m (89.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:46.895085"], ["updated_at", "2018-04-24 19:58:46.895085"], ["name", "Coruscant"]]
+  [1m[35m (75.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:46.986576"], ["updated_at", "2018-04-24 19:58:46.986576"], ["name", "Mygeeto"]]
+  [1m[35m (104.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:47.099071"], ["updated_at", "2018-04-24 19:58:47.099071"], ["name", "Ryloth"]]
+  [1m[35m (98.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:47.208848"], ["updated_at", "2018-04-24 19:58:47.208848"], ["name", "Cloud City"]]
+  [1m[35m (102.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:47.319868"], ["updated_at", "2018-04-24 19:58:47.319868"], ["name", "Starkiller Base"]]
+  [1m[35m (104.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:47.432289"], ["updated_at", "2018-04-24 19:58:47.432289"], ["name", "Sullust"]]
+  [1m[35m (91.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:47.532426"], ["updated_at", "2018-04-24 19:58:47.532426"], ["name", "Crait"]]
+  [1m[35m (81.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:47.620170"], ["updated_at", "2018-04-24 19:58:47.620170"], ["name", "Tatooine"]]
+  [1m[35m (80.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:47.708443"], ["updated_at", "2018-04-24 19:58:47.708443"], ["name", "Hoth"]]
+  [1m[35m (113.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:47.830235"], ["updated_at", "2018-04-24 19:58:47.830235"], ["name", "Cloud City"]]
+  [1m[35m (106.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:47.945051"], ["updated_at", "2018-04-24 19:58:47.945051"], ["name", "Takodana"]]
+  [1m[35m (191.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:48.144146"], ["updated_at", "2018-04-24 19:58:48.144146"], ["name", "Naboo"]]
+  [1m[35m (104.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:48.256560"], ["updated_at", "2018-04-24 19:58:48.256560"], ["name", "Kamino"]]
+  [1m[35m (77.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:48.342010"], ["updated_at", "2018-04-24 19:58:48.342010"], ["name", "Kamino"]]
+  [1m[35m (80.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:48.430824"], ["updated_at", "2018-04-24 19:58:48.430824"], ["name", "Eadu"]]
+  [1m[35m (106.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:48.543776"], ["updated_at", "2018-04-24 19:58:48.543776"], ["name", "Crait"]]
+  [1m[35m (84.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:48.641255"], ["updated_at", "2018-04-24 19:58:48.641255"], ["name", "Mygeeto"]]
+  [1m[35m (66.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:48.718759"], ["updated_at", "2018-04-24 19:58:48.718759"], ["name", "Jedha"]]
+  [1m[35m (90.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:48.818175"], ["updated_at", "2018-04-24 19:58:48.818175"], ["name", "Starkiller Base"]]
+  [1m[35m (96.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:48.921623"], ["updated_at", "2018-04-24 19:58:48.921623"], ["name", "Tatooine"]]
+  [1m[35m (99.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:49.029986"], ["updated_at", "2018-04-24 19:58:49.029986"], ["name", "Hosnian Prime"]]
+  [1m[35m (102.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:49.140174"], ["updated_at", "2018-04-24 19:58:49.140174"], ["name", "Eadu"]]
+  [1m[35m (82.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:49.230325"], ["updated_at", "2018-04-24 19:58:49.230325"], ["name", "Mustafar"]]
+  [1m[35m (134.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:49.372453"], ["updated_at", "2018-04-24 19:58:49.372453"], ["name", "Tatooine"]]
+  [1m[35m (94.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:49.475438"], ["updated_at", "2018-04-24 19:58:49.475438"], ["name", "Yavin 4"]]
+  [1m[35m (79.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:49.564147"], ["updated_at", "2018-04-24 19:58:49.564147"], ["name", "Death Star"]]
+  [1m[35m (104.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:49.677418"], ["updated_at", "2018-04-24 19:58:49.677418"], ["name", "Hoth"]]
+  [1m[35m (78.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:49.762990"], ["updated_at", "2018-04-24 19:58:49.762990"], ["name", "Crait"]]
+  [1m[35m (94.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:49.864995"], ["updated_at", "2018-04-24 19:58:49.864995"], ["name", "Mygeeto"]]
+  [1m[35m (65.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:49.941984"], ["updated_at", "2018-04-24 19:58:49.941984"], ["name", "Sullust"]]
+  [1m[35m (67.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:50.019845"], ["updated_at", "2018-04-24 19:58:50.019845"], ["name", "DQar"]]
+  [1m[35m (95.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:50.123018"], ["updated_at", "2018-04-24 19:58:50.123018"], ["name", "Cantonica"]]
+  [1m[35m (99.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:50.232356"], ["updated_at", "2018-04-24 19:58:50.232356"], ["name", "Crait"]]
+  [1m[35m (101.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:50.344281"], ["updated_at", "2018-04-24 19:58:50.344281"], ["name", "Ahch-To"]]
+  [1m[35m (86.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:50.442350"], ["updated_at", "2018-04-24 19:58:50.442350"], ["name", "Mandalore"]]
+  [1m[35m (78.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:50.533081"], ["updated_at", "2018-04-24 19:58:50.533081"], ["name", "Ahch-To"]]
+  [1m[35m (84.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:50.630535"], ["updated_at", "2018-04-24 19:58:50.630535"], ["name", "Hoth"]]
+  [1m[35m (102.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:50.743565"], ["updated_at", "2018-04-24 19:58:50.743565"], ["name", "Ryloth"]]
+  [1m[35m (117.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:50.868381"], ["updated_at", "2018-04-24 19:58:50.868381"], ["name", "Cantonica"]]
+  [1m[35m (88.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:50.964264"], ["updated_at", "2018-04-24 19:58:50.964264"], ["name", "Eadu"]]
+  [1m[35m (64.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("created_at", "updated_at", "name") VALUES (?, ?, ?)[0m  [["created_at", "2018-04-24 19:58:51.043398"], ["updated_at", "2018-04-24 19:58:51.043398"], ["name", "Jedha"]]
+  [1m[35m (102.9ms)[0m  [1m[36mcommit transaction[0m
